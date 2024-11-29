@@ -29,7 +29,7 @@
 
         /* Button Styles */
         .btn-primary {
-            @apply inline-block bg-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transform transition hover:-translate-y-1 hover:bg-blue-700;
+            @apply inline-block bg-blue-600 text-white font-semibold py-3 px-8 rounded-md shadow-md transform transition hover:-translate-y-1 hover:bg-blue-700;
         }
 
         /* Hero Section */
@@ -42,13 +42,13 @@
 
         /* Card Hover Effect */
         .card:hover {
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
         }
 
         /* Section Headings */
         .section-title {
-            @apply text-4xl font-extrabold text-gray-900 mb-6;
+            @apply text-4xl font-extrabold text-gray-900 mb-8;
         }
 
         /* Footer */
@@ -70,11 +70,26 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #1e40af;
+            border-radius: 4px;
+        }
+
+        /* Adjusted for better UI */
+        .gradient-bg {
+            background: linear-gradient(90deg, rgba(29,78,216,1) 0%, rgba(79,70,229,1) 100%);
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900">
     <!-- Header -->
-    <header class="fixed w-full z-50 bg-white shadow">
+    <header class="fixed w-full z-50 bg-white shadow-md">
         <nav class="container mx-auto flex items-center justify-between py-4 px-6 lg:px-8">
             <!-- Logo -->
             <div>
@@ -93,9 +108,8 @@
             <!-- Mobile Menu Button -->
             <div class="lg:hidden">
                 <button id="mobile-menu-button" class="text-gray-700 hover:text-gray-900 focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                 </button>
             </div>
@@ -115,41 +129,34 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-bg relative pt-20 pb-32 flex content-center items-center justify-center min-h-screen">
-        <div class="absolute top-0 w-full h-full bg-gray-900 opacity-75"></div>
-        <div class="container relative mx-auto">
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="w-full lg:w-7/12 px-4 text-center lg:text-left">
-                    <h1 class="text-5xl font-extrabold text-white leading-tight mb-6">
-                        ClearView Window Cleaning
-                    </h1>
-                    <p class="text-xl text-gray-200 mb-8">
-                        We make your windows sparkle and shine!
-                    </p>
-                    <a href="https://clear-viewwindowpros-com.vercel.app/book-a-call.html" class="btn-primary">Book a Call</a>
-                </div>
-                <div class="w-full lg:w-5/12 px-4 mt-12 lg:mt-0">
-                    <img src="https://images.unsplash.com/photo-1598361407434-2cce0a90c616?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Window Cleaning" class="rounded-lg shadow-lg">
-                </div>
-            </div>
+    <section class="hero-bg relative pt-32 pb-40 flex content-center items-center justify-center min-h-screen">
+        <div class="absolute top-0 w-full h-full bg-gray-900 opacity-70"></div>
+        <div class="container relative mx-auto text-center">
+            <h1 class="text-5xl font-extrabold text-white leading-tight mb-6">
+                ClearView Window Cleaning
+            </h1>
+            <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                We make your windows sparkle and shine!
+            </p>
+            <a href="https://clear-viewwindowpros-com.vercel.app/book-a-call.html" class="btn-primary">Book a Call</a>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-50">
+    <section id="services" class="py-24 bg-gray-50">
         <div class="container mx-auto px-6 lg:px-8">
             <h2 class="section-title text-center">Our Services</h2>
-            <p class="text-center text-gray-600 mb-12">Professional window cleaning services for both residential and commercial properties.</p>
-            <div class="flex flex-wrap justify-center items-stretch gap-8">
+            <p class="text-center text-gray-600 mb-12 max-w-xl mx-auto">Professional window cleaning services for both residential and commercial properties.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- Service 1 -->
-                <div class="bg-white p-8 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/3 card transition-transform transform hover:-translate-y-2">
+                <div class="bg-white p-8 rounded-xl shadow-lg card transition-transform transform hover:-translate-y-2">
                     <img src="https://images.unsplash.com/photo-1604845893981-c911a2950c02?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Residential Window Cleaning" class="rounded-md mb-6 responsive-img">
                     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Residential Window Cleaning</h3>
                     <p class="text-gray-600 mb-6">Our team provides top-notch window cleaning services for your home. We ensure your windows are spotless and streak-free. If you're not satisfied, we'll clean them again for free.</p>
                     <a href="#contact" class="text-blue-600 font-semibold hover:underline">Get a Quote &rarr;</a>
                 </div>
                 <!-- Service 2 -->
-                <div class="bg-white p-8 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/3 card transition-transform transform hover:-translate-y-2">
+                <div class="bg-white p-8 rounded-xl shadow-lg card transition-transform transform hover:-translate-y-2">
                     <img src="https://images.unsplash.com/photo-1516675302201-aa75cba69f0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commercial Window Cleaning" class="rounded-md mb-6 responsive-img">
                     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Commercial Window Cleaning</h3>
                     <p class="text-gray-600 mb-6">Keep your business looking professional with our commercial window cleaning services. We cater to buildings up to two stories tall.</p>
@@ -160,44 +167,44 @@
     </section>
 
     <!-- About Us Section -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-24 bg-white">
         <div class="container mx-auto px-6 lg:px-8">
-            <div class="flex flex-col-reverse lg:flex-row items-center">
+            <div class="flex flex-col lg:flex-row items-center">
+                <!-- Images -->
+                <div class="w-full lg:w-1/2 flex flex-wrap -mx-4 mb-12 lg:mb-0">
+                    <div class="w-1/2 px-4">
+                        <img src="https://images.unsplash.com/photo-1565791601516-f0bd7afe1bd4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About Us Image 1" class="rounded-xl shadow-lg mb-8">
+                    </div>
+                    <div class="w-1/2 px-4">
+                        <img src="https://images.unsplash.com/photo-1609768394506-70d19000836c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About Us Image 2" class="rounded-xl shadow-lg">
+                    </div>
+                </div>
                 <!-- Text Content -->
-                <div class="w-full lg:w-1/2 mt-8 lg:mt-0">
+                <div class="w-full lg:w-1/2 lg:pl-12">
                     <h2 class="section-title">About Us</h2>
                     <p class="text-gray-600 mb-6">ClearView Window Cleaning has been providing professional window cleaning services to countless satisfied customers. We are committed to delivering excellent service and ensuring customer satisfaction.</p>
                     <p class="text-gray-600">Our experienced team uses the latest techniques and equipment to ensure your windows are immaculate. We value integrity, professionalism, and building long-lasting relationships with our clients.</p>
-                </div>
-                <!-- Images -->
-                <div class="w-full lg:w-1/2 flex flex-wrap -mx-4">
-                    <div class="w-1/2 px-4">
-                        <img src="https://images.unsplash.com/photo-1565791601516-f0bd7afe1bd4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About Us Image 1" class="rounded-lg shadow-lg mb-8">
-                    </div>
-                    <div class="w-1/2 px-4">
-                        <img src="https://images.unsplash.com/photo-1609768394506-70d19000836c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About Us Image 2" class="rounded-lg shadow-lg">
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-gray-50">
+    <section id="gallery" class="py-24 bg-gray-50">
         <div class="container mx-auto px-6 lg:px-8">
             <h2 class="section-title text-center">Gallery</h2>
-            <p class="text-center text-gray-600 mb-12">A glimpse of our work showcasing the quality and attention to detail we provide.</p>
+            <p class="text-center text-gray-600 mb-12 max-w-xl mx-auto">A glimpse of our work showcasing the quality and attention to detail we provide.</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Image 1 -->
-                <div class="overflow-hidden rounded-lg shadow-lg">
+                <div class="overflow-hidden rounded-xl shadow-lg">
                     <img src="https://images.unsplash.com/photo-1599750669119-182e5b3134a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Gallery Image 1" class="w-full h-64 object-cover transition-transform transform hover:scale-105">
                 </div>
                 <!-- Image 2 -->
-                <div class="overflow-hidden rounded-lg shadow-lg">
+                <div class="overflow-hidden rounded-xl shadow-lg">
                     <img src="https://images.unsplash.com/photo-1558735018-afa9e7739710?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Gallery Image 2" class="w-full h-64 object-cover transition-transform transform hover:scale-105">
                 </div>
                 <!-- Image 3 -->
-                <div class="overflow-hidden rounded-lg shadow-lg">
+                <div class="overflow-hidden rounded-xl shadow-lg">
                     <img src="https://images.unsplash.com/photo-1610901652941-ee7d6c2ca7d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Gallery Image 3" class="w-full h-64 object-cover transition-transform transform hover:scale-105">
                 </div>
             </div>
@@ -205,40 +212,40 @@
     </section>
 
     <!-- Our Why Section -->
-    <section class="bg-blue-600 py-20">
-        <div class="container mx-auto px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-extrabold text-white mb-6">Our Why</h2>
-            <p class="text-xl text-gray-200 max-w-3xl mx-auto">We started ClearView Window Cleaning because we love the satisfaction of providing customers with crystal-clear windows. Our goal is to not only deliver exceptional service but also to create lasting relationships and support our team's future endeavors.</p>
+    <section class="gradient-bg py-24">
+        <div class="container mx-auto px-6 lg:px-8 text-center text-white">
+            <h2 class="text-4xl font-extrabold mb-6">Our Why</h2>
+            <p class="text-xl max-w-3xl mx-auto">We started ClearView Window Cleaning because we love the satisfaction of providing customers with crystal-clear windows. Our goal is to not only deliver exceptional service but also to create lasting relationships and support our team's future endeavors.</p>
         </div>
     </section>
 
     <!-- Our Team Section -->
-    <section id="team" class="py-20 bg-white">
+    <section id="team" class="py-24 bg-white">
         <div class="container mx-auto px-6 lg:px-8">
             <h2 class="section-title text-center">Our Team</h2>
-            <p class="text-center text-gray-600 mb-12">Meet the dedicated professionals behind ClearView Window Cleaning.</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <p class="text-center text-gray-600 mb-12 max-w-xl mx-auto">Meet the dedicated professionals behind ClearView Window Cleaning.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
                 <!-- Team Member 1 -->
                 <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1608538348815-4529fe0d3ef1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Austin Carlson" class="w-40 h-40 object-cover rounded-full mx-auto mb-4">
+                    <img src="https://images.unsplash.com/photo-1608538348815-4529fe0d3ef1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Austin Carlson" class="w-40 h-40 object-cover rounded-full mx-auto mb-6">
                     <h3 class="text-xl font-semibold text-gray-800">Austin Carlson</h3>
                     <p class="text-gray-600">Owner</p>
                 </div>
                 <!-- Team Member 2 -->
                 <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1614281809819-607a32786b9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Ethan Froggley" class="w-40 h-40 object-cover rounded-full mx-auto mb-4">
+                    <img src="https://images.unsplash.com/photo-1614281809819-607a32786b9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Ethan Froggley" class="w-40 h-40 object-cover rounded-full mx-auto mb-6">
                     <h3 class="text-xl font-semibold text-gray-800">Ethan Froggley</h3>
                     <p class="text-gray-600">Owner</p>
                 </div>
                 <!-- Team Member 3 -->
                 <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1603415526960-3f8d30a04b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Van Kelson" class="w-40 h-40 object-cover rounded-full mx-auto mb-4">
+                    <img src="https://images.unsplash.com/photo-1603415526960-3f8d30a04b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Van Kelson" class="w-40 h-40 object-cover rounded-full mx-auto mb-6">
                     <h3 class="text-xl font-semibold text-gray-800">Van Kelson</h3>
                     <p class="text-gray-600">Owner</p>
                 </div>
                 <!-- Team Member 4 -->
                 <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1605902711622-cfb43ce4f32b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Landen Thomas" class="w-40 h-40 object-cover rounded-full mx-auto mb-4">
+                    <img src="https://images.unsplash.com/photo-1605902711622-cfb43ce4f32b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Landen Thomas" class="w-40 h-40 object-cover rounded-full mx-auto mb-6">
                     <h3 class="text-xl font-semibold text-gray-800">Landen Thomas</h3>
                     <p class="text-gray-600">Owner</p>
                 </div>
@@ -247,13 +254,13 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="bg-gray-50 py-20">
+    <section class="bg-gray-50 py-24">
         <div class="container mx-auto px-6 lg:px-8">
             <h2 class="section-title text-center">Testimonials</h2>
-            <p class="text-center text-gray-600 mb-12">Hear what our satisfied customers have to say about our services.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <p class="text-center text-gray-600 mb-12 max-w-xl mx-auto">Hear what our satisfied customers have to say about our services.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- Testimonial 1 -->
-                <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
                     <div class="flex items-center mb-6">
                         <img src="https://images.unsplash.com/photo-1605902711622-cfb43ce4f32b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Customer 1" class="w-12 h-12 rounded-full mr-4">
                         <div>
@@ -264,7 +271,7 @@
                     <p class="text-gray-600">“ClearView did an outstanding job on our windows! Their professionalism and attention to detail are unmatched. Highly recommended!”</p>
                 </div>
                 <!-- Testimonial 2 -->
-                <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
                     <div class="flex items-center mb-6">
                         <img src="https://images.unsplash.com/photo-1603415526960-3f8d30a04b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Customer 2" class="w-12 h-12 rounded-full mr-4">
                         <div>
@@ -279,13 +286,13 @@
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="py-20 bg-blue-600">
+    <section id="pricing" class="py-24 gradient-bg">
         <div class="container mx-auto px-6 lg:px-8">
             <h2 class="section-title text-center text-white">Pricing</h2>
-            <p class="text-center text-blue-200 mb-12">Choose the package that best fits your needs. No hidden fees, just transparent pricing.</p>
-            <div class="flex flex-wrap justify-center items-stretch gap-8">
+            <p class="text-center text-blue-200 mb-12 max-w-xl mx-auto">Choose the package that best fits your needs. No hidden fees, just transparent pricing.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <!-- Package 1 -->
-                <div class="bg-white p-8 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/3 text-center card transition-transform transform hover:-translate-y-2">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card transition-transform transform hover:-translate-y-2">
                     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Basic Package</h3>
                     <p class="text-5xl font-extrabold text-blue-600 mb-6">$99</p>
                     <ul class="text-gray-600 mb-8 space-y-2">
@@ -296,7 +303,7 @@
                     <a href="https://clear-viewwindowpros-com.vercel.app/book-a-call.html" class="btn-primary">Book Now</a>
                 </div>
                 <!-- Package 2 -->
-                <div class="bg-white p-8 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/3 text-center card transition-transform transform hover:-translate-y-2">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card transition-transform transform hover:-translate-y-2">
                     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Standard Package</h3>
                     <p class="text-5xl font-extrabold text-blue-600 mb-6">$149</p>
                     <ul class="text-gray-600 mb-8 space-y-2">
@@ -308,7 +315,7 @@
                     <a href="https://clear-viewwindowpros-com.vercel.app/book-a-call.html" class="btn-primary">Book Now</a>
                 </div>
                 <!-- Package 3 -->
-                <div class="bg-white p-8 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/3 text-center card transition-transform transform hover:-translate-y-2">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card transition-transform transform hover:-translate-y-2">
                     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Premium Package</h3>
                     <p class="text-5xl font-extrabold text-blue-600 mb-6">$199</p>
                     <ul class="text-gray-600 mb-8 space-y-2">
@@ -325,7 +332,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
+    <section id="contact" class="py-24 bg-white">
         <div class="container mx-auto px-6 lg:px-8">
             <div class="max-w-2xl mx-auto">
                 <h2 class="section-title text-center">Support Center</h2>
@@ -364,63 +371,69 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="bg-gray-50 py-20">
+    <section class="bg-gray-50 py-24">
         <div class="container mx-auto px-6 lg:px-8">
             <h2 class="section-title text-center">Frequently Asked Questions</h2>
-            <p class="text-center text-gray-600 mb-12">Can't find the answer you're looking for? Reach out to our <a href="#contact" class="text-blue-600 hover:underline">customer support</a> team.</p>
-            <dl class="max-w-4xl mx-auto space-y-8">
-                <!-- FAQ 1 -->
-                <div>
-                    <dt class="text-xl font-semibold text-gray-800">What areas do you serve?</dt>
-                    <dd class="mt-2 text-gray-600">We serve the entire metropolitan area and surrounding suburbs. Contact us to see if we cover your location.</dd>
+            <p class="text-center text-gray-600 mb-12 max-w-xl mx-auto">Can't find the answer you're looking for? Reach out to our <a href="#contact" class="text-blue-600 hover:underline">customer support</a> team.</p>
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-8">
+                    <!-- FAQ 1 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">What areas do you serve?</h3>
+                        <p class="mt-2 text-gray-600">We serve the entire metropolitan area and surrounding suburbs. Contact us to see if we cover your location.</p>
+                    </div>
+                    <!-- FAQ 2 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">What are your operating hours?</h3>
+                        <p class="mt-2 text-gray-600">We operate Monday through Friday from 8 AM to 6 PM. Weekend services are available by appointment.</p>
+                    </div>
+                    <!-- FAQ 3 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">Do you offer any guarantees?</h3>
+                        <p class="mt-2 text-gray-600">Yes, we offer a streak-free guarantee. If you're not satisfied with our service, we'll come back and make it right.</p>
+                    </div>
+                    <!-- FAQ 4 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">Are your cleaning products safe?</h3>
+                        <p class="mt-2 text-gray-600">Absolutely. We use eco-friendly and non-toxic cleaning products that are safe for your family, pets, and the environment.</p>
+                    </div>
                 </div>
-                <!-- FAQ 2 -->
-                <div>
-                    <dt class="text-xl font-semibold text-gray-800">What are your operating hours?</dt>
-                    <dd class="mt-2 text-gray-600">We operate Monday through Friday from 8 AM to 6 PM. Weekend services are available by appointment.</dd>
-                </div>
-                <!-- FAQ 3 -->
-                <div>
-                    <dt class="text-xl font-semibold text-gray-800">Do you offer any guarantees?</dt>
-                    <dd class="mt-2 text-gray-600">Yes, we offer a streak-free guarantee. If you're not satisfied with our service, we'll come back and make it right.</dd>
-                </div>
-                <!-- FAQ 4 -->
-                <div>
-                    <dt class="text-xl font-semibold text-gray-800">Are your cleaning products safe?</dt>
-                    <dd class="mt-2 text-gray-600">Absolutely. We use eco-friendly and non-toxic cleaning products that are safe for your family, pets, and the environment.</dd>
-                </div>
-            </dl>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 py-8">
-        <div class="container mx-auto px-6 lg:px-8 text-center">
-            <div class="flex justify-center space-x-6 mb-6">
-                <!-- Social Icons -->
-                <a href="#" class="text-gray-400 hover:text-white">
-                    <span class="sr-only">Facebook</span>
-                    <!-- Facebook Icon -->
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M22 12.073C22 6.564 17.522 2 12 2S2 6.564 2 12.073c0 4.991 3.657 9.129 8.438 9.878V14.89h-2.54v-2.816h2.54v-2.139c0-2.507 1.492-3.89 3.778-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.261c-1.243 0-1.632.771-1.632 1.563v1.812h2.773l-.443 2.816h-2.33v7.062C18.343 21.202 22 16.964 22 12.073z" />
-                    </svg>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white">
-                    <span class="sr-only">Instagram</span>
-                    <!-- Instagram Icon -->
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path fill-rule="evenodd" d="M7.5 2A5.5 5.5 0 002 7.5v9A5.5 5.5 0 007.5 22h9a5.5 5.5 0 005.5-5.5v-9A5.5 5.5 0 0016.5 2h-9zm9 1.5h1a4 4 0 014 4v1h-1.5v-1a2.5 2.5 0 00-2.5-2.5h-1V3.5zm-9 0h1v1.5h-1A2.5 2.5 0 004 7.5v1H2.5v-1a4 4 0 014-4zm13 13h-1v1a2.5 2.5 0 01-2.5 2.5h-1V22h1a4 4 0 004-4v-1.5zm-13 0H3.5V16a4 4 0 004-4h1.5a5.5 5.5 0 01-5.5 5.5v1.5zm5-12a5.5 5.5 0 11-1.936 10.645 5.5 5.5 0 011.936-10.645zM12 8.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z" clip-rule="evenodd" />
-                    </svg>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white">
-                    <span class="sr-only">Twitter</span>
-                    <!-- Twitter Icon -->
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M23 2.999a9.001 9.001 0 01-2.356.657A4.009 4.009 0 0022.388.571a8.9 8.9 0 01-2.828 1.07A4.501 4.501 0 0016.616 0c-2.5 0-4.5 2.007-4.5 4.489 0 .34.042.67.116.988C8.432 5.432 4.587 3.668 1.943.993A4.45 4.45 0 001.48 3.21a4.474 4.474 0 001.999 3.749A4.513 4.513 0 01.89 6.77v.057a4.508 4.508 0 003.608 4.42 4.553 4.553 0 01-2.037.077 4.515 4.515 0 004.216 3.134 9.035 9.035 0 01-5.587 1.944A8.98 8.98 0 010 19.093a12.813 12.813 0 006.94 2.037c8.32 0 12.875-6.853 12.875-12.797 0-.195-.005-.383-.014-.572A9.183 9.183 0 0023 2.999z" />
-                    </svg>
-                </a>
+    <footer class="bg-gray-900 py-12">
+        <div class="container mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold text-white">ClearView</a>
+                </div>
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <span class="sr-only">Facebook</span>
+                        <!-- Facebook Icon -->
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M22 12.073C22 6.564 17.522 2 12 2S2 6.564 2 12.073c0 4.991 3.657 9.129 8.438 9.878V14.89h-2.54v-2.816h2.54v-2.139c0-2.507 1.492-3.89 3.778-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.261c-1.243 0-1.632.771-1.632 1.563v1.812h2.773l-.443 2.816h-2.33v7.062C18.343 21.202 22 16.964 22 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <span class="sr-only">Instagram</span>
+                        <!-- Instagram Icon -->
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M7.5 2A5.5 5.5 0 002 7.5v9A5.5 5.5 0 007.5 22h9a5.5 5.5 0 005.5-5.5v-9A5.5 5.5 0 0016.5 2h-9zm9 1.5h1a4 4 0 014 4v1h-1.5v-1a2.5 2.5 0 00-2.5-2.5h-1V3.5zm-9 0h1v1.5h-1A2.5 2.5 0 004 7.5v1H2.5v-1a4 4 0 014-4zm13 13h-1v1a2.5 2.5 0 01-2.5 2.5h-1V22h1a4 4 0 004-4v-1.5zm-13 0H3.5V16a4 4 0 004-4h1.5a5.5 5.5 0 01-5.5 5.5v1.5zm5-12a5.5 5.5 0 11-1.936 10.645 5.5 5.5 0 011.936-10.645zM12 8.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <span class="sr-only">Twitter</span>
+                        <!-- Twitter Icon -->
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23 2.999a9.001 9.001 0 01-2.356.657A4.009 4.009 0 0022.388.571a8.9 8.9 0 01-2.828 1.07A4.501 4.501 0 0016.616 0c-2.5 0-4.5 2.007-4.5 4.489 0 .34.042.67.116.988C8.432 5.432 4.587 3.668 1.943.993A4.45 4.45 0 001.48 3.21a4.474 4.474 0 001.999 3.749A4.513 4.513 0 01.89 6.77v.057a4.508 4.508 0 003.608 4.42 4.553 4.553 0 01-2.037.077 4.515 4.515 0 004.216 3.134 9.035 9.035 0 01-5.587 1.944A8.98 8.98 0 010 19.093a12.813 12.813 0 006.94 2.037c8.32 0 12.875-6.853 12.875-12.797 0-.195-.005-.383-.014-.572A9.183 9.183 0 0023 2.999z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p class="text-gray-400 text-sm">&copy; 2023 ClearView Window Cleaning. All rights reserved.</p>
             </div>
-            <p class="text-gray-400 text-sm">&copy; 2023 ClearView Window Cleaning. All rights reserved.</p>
         </div>
     </footer>
 
