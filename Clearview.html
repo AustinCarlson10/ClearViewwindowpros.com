@@ -29,7 +29,7 @@
 
         /* Button Styles */
         .btn-primary {
-            @apply inline-block bg-blue-600 text-white font-semibold py-3 px-8 rounded-md shadow-md transform transition hover:-translate-y-1 hover:bg-blue-700;
+            @apply inline-block bg-blue-600 text-white font-semibold py-3 px-8 rounded-md shadow-md transform transition-all duration-300 ease-in-out hover:-translate-y-1 hover:bg-blue-700;
         }
 
         /* Hero Section */
@@ -85,6 +85,21 @@
         .gradient-bg {
             background: linear-gradient(90deg, rgba(29,78,216,1) 0%, rgba(79,70,229,1) 100%);
         }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            header {
+                position: relative;
+            }
+
+            .hero-bg {
+                background-position: center;
+            }
+
+            .section-title {
+                @apply text-3xl;
+            }
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900">
@@ -108,7 +123,7 @@
             <!-- Mobile Menu Button -->
             <div class="lg:hidden">
                 <button id="mobile-menu-button" class="text-gray-700 hover:text-gray-900 focus:outline-none">
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                 </button>
@@ -410,6 +425,7 @@
                     <a href="#" class="text-2xl font-bold text-white">ClearView</a>
                 </div>
                 <div class="flex space-x-6 mb-6 md:mb-0">
+                    <!-- Social Icons -->
                     <a href="#" class="text-gray-400 hover:text-white">
                         <span class="sr-only">Facebook</span>
                         <!-- Facebook Icon -->
@@ -440,8 +456,11 @@
     <!-- Scripts -->
     <script>
         // Mobile Menu Toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function () {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
     </script>
 </body>
